@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">SMART HOME</a>
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/login">LogIn</a></li>
+          <li><a href="/">Home</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-links">
+      <li><a href="/login">LogIn</a></li>
+      <li><a href="/">Home</a></li>
+    </ul>
+    <br></br>
+    <div class="container">
+        <form class="center-align" action="">
+            <div class="row ">
+                <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
+                    <input placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" required />
+                    <label for="full_name">Full Name
+                          <i class="material-icons left">person</i>
+                    </label>
+                </div>
+            </div>
+
+                <div class="row ">
+            
+                    <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
+                        <input type="text" pattern="03[0-9]{2}-(?!1234567)(?!1111111)(?!7654321)[0-9]{7}" name="mobile_number" placeholder="03xx-xxxxxxx" title="Mobile Number" class="validate" required />
+                        <label for="mobile_number">Phone
+                          <i class="material-icons left">phone</i>
+                      </label>
+                  </div>
+                </div>
+          
+                <div class="row ">
+            
+                    <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
+                        <input id="email" type="email" class="validate" title="Email" placeholder="example@example.com" required/>
+                        <label for="email"
+                            >Email
+                            <i class="material-icons left">email</i>
+                        </label>
+                    </div>
+                </div>
+          
+  
+          <div class="row" >
+            <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3  ">
+              <input
+                name="password"
+                id="password"
+                type="password"
+                class="validate"
+                pattern=".{8,}" title="Password"
+                placeholder="Min eight"
+                required
+              />
+              <label for="password">Password
+                <i class="material-icons left">vpn_key</i>
+              </label>
+            </div>
+          </div>
+  
+          <button
+            class="btn waves-effect waves-light s4 "
+            type="submit"
+            name="action"
+          >
+            SignUp
+            <i class="material-icons right">send</i>
+          </button>
+          <br></br>
+
+        <a href="/login.html">Already a User! Click here</a>
+          <br> </br>
+
+        </form>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l6">
+            <h5>About Developer</h5>
+            <p>
+              Developer is a student of Software Engineering (BatchF15), Departement of Computer Science & Software Engineering International Islamic University Islamabad. 
+            </p>
+          </div>
+          <div class="col s12 l4 offset-l2">
+            <h5>Connect</h5>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/hamzajamalofficial" class="fa fa-facebook"> Facebook</a>
+                
+                <br>
+                <a href="https://twitter.com/Hmza_jamal" class="fa fa-twitter"> Twitter</a>
+                <br>
+                <a href="#" class="fa fa-instagram"> Instagram</a>
+                
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+
+      <div class="footer-copyright">
+        <div class="container center-align">
+          Copyrighted &copy; 2020 by Hamza Jamil
+        </div>
+      </div>
+        
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </body>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function()
+    {
+      $('.sidenav').sidenav();
+    });
+  </script>
+</html>
