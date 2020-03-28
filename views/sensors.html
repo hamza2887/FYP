@@ -35,7 +35,7 @@
         <li><a href="user.html">Home</a></li>
         <li><a href="/" >SignOut <i class="material-icons left">person_outline</i></a></li>
       </ul>
-    <form id="myForm" action="" method="post">
+  <form id="Sensors" action="/sensors" method="post">
     
     <div class="switch center-align">
         <h1>Sensors</h1>
@@ -44,38 +44,45 @@
           <input
             name="smoke_sensor"
             type="checkbox"
-            onchange="handleChange(this)"
+            onchange="handleChange()"
           />
           <span class="lever"></span>
           On
         </label>
+    </div>
+  
+  
+    <div class="switch center-align">
         <label> <h5>Gas Sensor <span class="iconify" data-icon="mdi-gas-cylinder"></span> </h5>
             Off
             <input
               name="gas_sensor"
               type="checkbox"
-              checked="checked"
-              onchange="handleChange(this)"
+              
+              onchange="handleChange()"
             />
             <span class="lever"></span>
             On
           </label>
+    </div>
+
+
+  
+    <div class="switch center-align">
         <label> <h5>Motion Sensor <span class="iconify" data-icon="mdi-motion-sensor"></span> </h5>
           Off
           <input
             name="motion_sensor"
             type="checkbox"
-            checked="checked"
-            onchange="handleChange(this)"
+            
+            onchange="handleChange()"
           />
           <span class="lever"></span>
           On
         </label>
-        <br></br>
-
-
-      </div>
-    </form>
+    </div>
+  </form>
+  <br></br>
 
 <br></br>
 <footer class="page-footer">
@@ -112,12 +119,15 @@
   </div>
     
 </footer>
-<script>function handleChange(checkbox) 
+<script>
+function handleChange(checkbox) 
   {
-    document.getElementById("myForm").submit();
+    document.getElementById("Sensors").submit();
   }
 </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>

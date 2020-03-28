@@ -35,46 +35,46 @@
       <li><a href="user.html">Home</a></li>
       <li><a href="/" >SignOut <i class="material-icons left">person_outline</i></a></li>
     </ul>
-      
+    <form id="Bedroom2" action="/bedroom2" method="post"> 
     
       <div class="switch center-align">
         <h1>Bed Room 2 <i class="medium material-icons">single_bed</i> </h1>
         <label> <h5>Celing Fan <span class="iconify" data-icon="mdi-fan"></span></h5>
             Off
             <input
-              name="r2fanSwitch"
+              name="r2fanswitch"
               type="checkbox"
-              checked="checked"
-              onchange="handleChange(this)"
-            />
-            <span class="lever"></span>
-            On
-          </label>
-        <label> <h5>Main Light <i class="tiny material-icons ">wb_incandescent</i></h5>
-          Off
-          <input
-            name="r2mlightSwitch"
-            type="checkbox"
-            checked="checked"
-            onchange="handleChange(this)"
-          />
-          <span class="lever"></span>
-          On
-        </label>
-
-        <label> <h5>Zero Light <i class="tiny material-icons ">wb_incandescent</i></h5>
-            Off
-            <input
-              name="r2zlightSwitch"
-              type="checkbox"
-              checked="checked"
-              onchange="handleChange(this)"
+              onchange="handleChange()"
             />
             <span class="lever"></span>
             On
           </label>
       </div>
-    
+      <div class="switch center-align">
+        <label> <h5>Main Light <i class="tiny material-icons ">wb_incandescent</i></h5>
+          Off
+          <input
+            name="r2mlightswitch"
+            type="checkbox"
+            onchange="handleChange()"
+          />
+          <span class="lever"></span>
+          On
+        </label>
+      </div>
+      <div class="switch center-align">
+        <label> <h5>Zero Light <i class="tiny material-icons ">wb_incandescent</i></h5>
+            Off
+            <input
+              name="r2zlightswitch"
+              type="checkbox"
+              onchange="handleChange()"
+            />
+            <span class="lever"></span>
+            On
+          </label>
+      </div>
+    </form>
 
           <br></br>
           <footer class="page-footer">
@@ -111,6 +111,12 @@
             </div>
               
           </footer>
+    <script>
+      function handleChange(checkbox) 
+        {
+          document.getElementById("Bedroom2").submit();
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 <script type="text/javascript" src="js/materialize.min.js"></script>

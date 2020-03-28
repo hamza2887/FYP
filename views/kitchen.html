@@ -35,17 +35,16 @@
       <li><a href="user.html">Home</a></li>
       <li><a href="/" >SignOut <i class="material-icons left">person_outline</i></a></li>
     </ul>
-      
+    <form id="Kitchen" action="/kitchen" method="post">   
     
       <div class="switch center-align ">
          <h1>Kitchen </h1>
             <label> <h5>Main Light <i class="tiny material-icons ">wb_incandescent</i></h5>
                 Off
                 <input
-                name="KlightSwitch"
+                name="klightswitch"
                 type="checkbox"
-                checked="checked"
-                onchange="handleChange(this)"
+                onchange="handleChange()"
             />
             <span class="lever"></span>
             On
@@ -53,10 +52,9 @@
             <label> <h5>Exhaust Fan <span class="iconify" data-icon="mdi-fan"></span></h5>
             Off
             <input
-                name="kexhaustSwitch"
+                name="kexhaustswitch"
                 type="checkbox"
-                checked="checked"
-                onchange="handleChange(this)"
+                onchange="handleChange()"
             />
             
             <span class="lever"></span>
@@ -101,6 +99,12 @@
           </div>
             
         </footer>
+    <script>
+      function handleChange(checkbox) 
+      {
+        document.getElementById("Kitchen").submit();
+      }
+     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 <script type="text/javascript" src="js/materialize.min.js"></script>
