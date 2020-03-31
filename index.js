@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: true
   })
 );
 
@@ -19,16 +19,26 @@ const homeGet = (req, res) => {
 const LoginGet = (req, res) => {
   res.sendFile(__dirname + "/views/login.html");
 };
-const smokesensorsGet = (req, res) => {
-  res.sendFile(__dirname + "/views/smokesensors.html");
-};
-
-
 const data = [
-  { email: "hamzajamil2887@gmail.com", pass: "12345678" },
-  { email: "h@g.c", pass: "abcd1234" },
-  { email: "b@g.c", pass: "qwertyuiop" }
+  
+  {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "hamzajamil2887@gmail.com", pass: "12345678" },
+  {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "h@g.c", pass: "abcd1234" },
+  {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "b@g.c", pass: "qwertyuiop" }
 ];
+
+const SignupPost = (req, res )=> {
+  res.sendFile(__dirname + "/views/login.html");
+  console.log("Name ....",req.body.full_name);
+  console.log("Mobile ....", req.body.mobile_number);
+  console.log("Email ....", req.body.email );
+  console.log("Password ....", req.body.password);
+  const Data ={Name: req.body.full_name, Mobile: req.body.mobile_number, email: req.body.email, pass: req.body.password }
+  data.push(Data)
+  console.log(Data);
+
+}; 
+
+
 
 const LoginPost = (req, res) => {
   console.log("", req.body);
@@ -99,6 +109,7 @@ const KitchenPost = (req, res) => {
 
 app.get("/", homeGet);
 app.get("/login", LoginGet);
+app.post("/signup", SignupPost);
 app.post("/login", LoginPost);
 app.post("/sensors", SensorsPost);
 app.post("/bedroom1", Bedroom1Post);

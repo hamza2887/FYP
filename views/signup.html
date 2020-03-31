@@ -37,10 +37,10 @@
     </ul>
     <br></br>
     <div class="container">
-        <form class="center-align" action="">
+        <form id="Signup" class="center-align" action="/signup" method="POST">
             <div class="row ">
                 <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
-                    <input placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" required />
+                    <input name="full_name" placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" required />
                     <label for="full_name">Full Name
                           <i class="material-icons left">person</i>
                     </label>
@@ -60,7 +60,7 @@
                 <div class="row ">
             
                     <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
-                        <input id="email" type="email" class="validate" title="Email" placeholder="example@example.com" required/>
+                        <input name="email" id="email" type="email" class="validate" title="Email" placeholder="example@example.com" required/>
                         <label for="email"
                             >Email
                             <i class="material-icons left">email</i>
@@ -136,6 +136,7 @@
       </div>
         
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </body>
   <script type="text/javascript" src="js/materialize.min.js"></script>
