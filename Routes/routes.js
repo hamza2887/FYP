@@ -1,18 +1,18 @@
 const express = require("express");
-const router = express.Router()
+    router = express.Router()
 
-
+    
 
 
     const homeGet = (req, res) => {
-        res.sendFile(__dirname , "../views/index.html");
+        res.redirect("/index.html");
     };
   
   const LoginGet = (req, res) => {
-    res.sendFile (__dirname,"../views/login.html");
+    res.redirect("/login.html");
   };
   const SignupGet = (req, res) => {
-    res.sendFile(__dirname,"../views/signup.html");
+    res.redirect("/signup.html");
   };
   const data = [
     
@@ -22,7 +22,7 @@ const router = express.Router()
   ];
   
   const SignupPost = (req, res )=> {
-    res.sendFile(__dirname , "../views/login.html");
+    res.redirect("/login.html");
     console.log("Name ....",req.body.full_name);
     console.log("Mobile ....", req.body.mobile_number);
     console.log("Email ....", req.body.email );
@@ -43,7 +43,7 @@ const router = express.Router()
         req.body.email === data[i].email &&
         req.body.password === data[i].pass
       ) {
-        res.sendFile(__dirname , "../views/user.html");
+        res.redirect("/user.html");
       }
     }
   };
@@ -116,5 +116,5 @@ const router = express.Router()
 
 
 
-
 module.exports = router;
+

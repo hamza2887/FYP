@@ -3,12 +3,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
+const router = require ('./Routes/routes')
 
 const app = express();
 const port = 3000;
 
 // Database Connection
-mongoose.connect('mongodb://127.0.0.1:27017/fyp', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1 :27017/fyp', { useNewUrlParser: true, useUnifiedTopology: true });
 
 //Check Database Connection
 mongoose.connection.once('open',function(){
@@ -35,6 +36,6 @@ app.use(session({
   resave:false
 }))
 
-app.use(require('./Routes/routes'));
+app.use(router);
 
 app.listen(port, () => console.log(`Server Started on port ${port}!`));
