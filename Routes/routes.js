@@ -1,35 +1,64 @@
 const express = require("express");
-    router = express.Router()
+const bodyparser = require("body-parser");
+const bcrypt = require("bcrypt");
+const user =  require('../model'); 
 
-    
 
+/////////////////////
+router = express.Router()
 
-    const homeGet = (req, res) => {
+////////////////////
+router.use(
+    bodyparser.urlencoded({
+      extended: true
+    })
+  );
+
+////////////////////
+  const homeGet = (req, res, next) => {
         res.redirect("/index.html");
-    };
+  };
   
-  const LoginGet = (req, res) => {
+  const LoginGet = (req, res, next) => {
     res.redirect("/login.html");
   };
-  const SignupGet = (req, res) => {
+  const SignupGet = (req, res, next) => {
     res.redirect("/signup.html");
   };
-  const data = [
+  //const data = [
     
-    {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "hamzajamil2887@gmail.com", pass: "12345678" },
-    {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "h@g.c", pass: "abcd1234" },
-    {Name:"Hamza Jamil",Mobile:"0347-9570248", email: "b@g.c", pass: "qwertyuiop" }
-  ];
+    //{Name:"Hamza Jamil",Mobile:"0347-9570248", email: "hamzajamil2887@gmail.com", pass: "12345678" },
+    //{Name:"Hamza Jamil",Mobile:"0347-9570248", email: "h@g.c", pass: "abcd1234" },
+    //{Name:"Hamza Jamil",Mobile:"0347-9570248", email: "b@g.c", pass: "qwertyuiop" }
+  //];
   
   const SignupPost = (req, res )=> {
+    var{full_name, mobile_number, email, password} = req.body;
+    bcrypt.genSalt(10,(err, salt)=>{
+      if(err) throw err;
+      bcrypt.hash(password, salt, (err, hash)=>{
+        if(err) throw err;
+        password=hash;
+        user({
+          full_name, 
+          mobile_number, 
+          email, 
+          password,
+        }).save((err,data)=>{
+          if(err) throw err;
+          res.redirect('/login');
+        });
+      });
+    });
+    
     res.redirect("/login.html");
-    console.log("Name ....",req.body.full_name);
-    console.log("Mobile ....", req.body.mobile_number);
-    console.log("Email ....", req.body.email );
-    console.log("Password ....", req.body.password);
-    const Data ={Name: req.body.full_name, Mobile: req.body.mobile_number, email: req.body.email, pass: req.body.password }
-    data.push(Data)
-    console.log(Data);
+    //console.log("Name ....",req.body.full_name);
+    //console.log("Mobile ....", req.body.mobile_number);
+    //console.log("Email ....", req.body.email );
+    //console.log("Password ....", req.body.password);
+    //const Data ={Name: req.body.full_name, Mobile: req.body.mobile_number, email: req.body.email, pass: req.body.password }
+    //data.push(Data)
+    //console.log(Data);
   
   }; 
   
