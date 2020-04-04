@@ -16,14 +16,14 @@ router.use(
 
 ////////////////////
   const homeGet = (req, res, next) => {
-        res.redirect("/index.html");
+        res.render('index');
   };
   
   const LoginGet = (req, res, next) => {
-    res.redirect("/login.html");
+    res.render('login');
   };
   const SignupGet = (req, res, next) => {
-    res.redirect("/signup.html");
+    res.render('signup');
   };
   //const data = [
     
@@ -51,14 +51,7 @@ router.use(
       });
     });
     
-    res.redirect("/login.html");
-    //console.log("Name ....",req.body.full_name);
-    //console.log("Mobile ....", req.body.mobile_number);
-    //console.log("Email ....", req.body.email );
-    //console.log("Password ....", req.body.password);
-    //const Data ={Name: req.body.full_name, Mobile: req.body.mobile_number, email: req.body.email, pass: req.body.password }
-    //data.push(Data)
-    //console.log(Data);
+    res.redirect("/login");
   
   }; 
   
