@@ -238,7 +238,6 @@ router.get("/bedroom1", checkAuthenticated, Bedroom1Get);
 router.get("/bedroom2", checkAuthenticated, Bedroom2Get);
 router.get("/kitchen", checkAuthenticated, KitchenGet);
 router.get("/logout", LogoutGet);
-
 router.post("/signup", SignupPost);
 router.post("/login", LoginPost);
 router.post("/sensors", SensorsPost);
