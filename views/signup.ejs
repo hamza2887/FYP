@@ -37,10 +37,11 @@
     </ul>
     <br></br>
     <div class="container">
-        <form id="Signup" class="center-align" action="/auth/signup" method="POST">
+      
+        <form id="Signup" class="center-align" action="/signup" method="POST">
             <div class="row ">
                 <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
-                    <input name="full_name" placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" required />
+                    <input name="full_name" placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" value="<%= typeof full_name != 'undefined' ? full_name : '' %>" required />
                     <label for="full_name">Full Name
                           <i class="material-icons left">person</i>
                     </label>
@@ -50,7 +51,7 @@
                 <div class="row ">
             
                     <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
-                        <input type="text" pattern="03[0-9]{2}-(?!1234567)(?!1111111)(?!7654321)[0-9]{7}" name="mobile_number" placeholder="03xx-xxxxxxx" title="Mobile Number" class="validate" required />
+                        <input type="text" pattern="03[0-9]{2}-(?!1234567)(?!1111111)(?!7654321)[0-9]{7}" name="mobile_number" placeholder="03xx-xxxxxxx" title="Mobile Number" class="validate" value="<%= typeof mobile_number != 'undefined' ? mobile_number : '' %>" required />
                         <label for="mobile_number">Phone
                           <i class="material-icons left">phone</i>
                       </label>
@@ -60,7 +61,7 @@
                 <div class="row ">
             
                     <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
-                        <input name="email" id="email" type="email" class="validate" title="Email" placeholder="example@example.com" required/>
+                        <input name="email" id="email" type="email" class="validate" title="Email" placeholder="example@example.com" value="<%= typeof email != 'undefined' ? email : '' %>" required/>
                         <label for="email"
                             >Email
                             <i class="material-icons left">email</i>
