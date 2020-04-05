@@ -157,10 +157,22 @@ const LogoutGet =(req, res) => {
   req.logout();
   res.redirect('/login');
 };
-const UserGet =(checkAuthenticated, (req, res) => {
+const UserGet =(req, res) => {
   res.render("user");
-});
+};
 
+const SensorsGet =(req, res) => {
+  res.render("sensors");
+};
+const Bedroom1Get =(req, res) => {
+  res.render("bedroom1");
+};
+const Bedroom2Get =(req, res) => {
+  res.render("bedroom2");
+};
+const KitchenGet =(req, res) => {
+  res.render("kitchen");
+};
 const SensorsPost = (req, res) => {
   console.log("Smoke Sensor ....", req.body.smoke_sensor ? true : false);
   console.log("Gas Sensor ....", req.body.gas_sensor ? true : false);
@@ -221,7 +233,12 @@ router.get("/", homeGet);
 router.get("/login", LoginGet);
 router.get("/signup", SignupGet);
 router.get("/user", checkAuthenticated, UserGet);
+router.get("/sensors", checkAuthenticated, SensorsGet);
+router.get("/bedroom1", checkAuthenticated, Bedroom1Get);
+router.get("/bedroom2", checkAuthenticated, Bedroom2Get);
+router.get("/kitchen", checkAuthenticated, KitchenGet);
 router.get("/logout", LogoutGet);
+
 router.post("/signup", SignupPost);
 router.post("/login", LoginPost);
 router.post("/sensors", SensorsPost);
