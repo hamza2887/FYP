@@ -99,7 +99,7 @@ const SignupPost = (req, res) => {
   var err;
   if (!full_name || !mobile_number || !email || !password) {
     err = "Please Fill All The Fields...";
-    res.render('signup', { 'err' : err });
+    res.render('signup', { 'err' : err, full_name: full_name , mobile_number: mobile_number, email: email  });
   }
   if (typeof err == "undefined") {
     user.findOne({ email: email }, function(err, data) {
@@ -122,11 +122,9 @@ const SignupPost = (req, res) => {
               password
             }).save((err, data) => {
               if (err) throw err;
-              req.flash(
-                "success_message",
-               "Registered Successfully.. Please Login To Continue.."
-              );
-              res.render("login");
+              else {req.flash('success_message',"Registered Successfully.. Please Login To Continue..");
+              console.log("Data added");
+              res.render("login");}
             });
           });
         });

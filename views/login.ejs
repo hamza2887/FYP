@@ -15,6 +15,34 @@
     />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<style>
+.alert {
+  padding: 20px;
+  background-color: #ee6e73;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.Success {background-color: #4CAF50;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In</title>
   </head>
@@ -41,12 +69,16 @@
     <div class="container">
       <form class="center-align" id="login" method="POST" action="/login">
         <% if(success_message != ''){ %>
-          <strong> <%= success_message %> </strong>
+          <div class="alert Success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong><%= success_message %></strong>
+          </div>
         <% } %>
         <% if(error != '') {%>
-          <div>
-            <strong>Error! <%= error %></strong> 
-        </div>
+          <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Error! <%= error %></strong>
+          </div>
           <% } %>
         <div class="row ">
           
