@@ -50,6 +50,39 @@ const checkAuthenticated = function (req, res, next) {
   }
 }
 
+// Authentication
+const localStrategy = require("passport-local").Strategy;
+passport.use(new localStrategy({usernameField : 'email'}, (email, password, done)=>{
+  user.findOne({email : email} , (err,data) => {
+    if(err) throw err;
+    if(!data){
+      return done(null,false, {message : "Email or Password doesn't match"});
+    }
+    bcrypt.compare(password, data.password, (err, match)=>{
+      if(err){
+        return done(null,false); 
+      }
+      if(!match){
+        return done(null,false, {message : "Email or Password doesn't match"}); 
+      }
+      if(match){
+        return done(null,data); 
+      }
+    });
+  });
+}));
+
+passport.serializeUser(function(user, cb){
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb){
+  user.findById(id, function(err, user){
+    cb(err,user)
+  })
+});
+// End Authentication
+
 //////////////////// Routes////////////////////
 
 //Home Route
@@ -105,38 +138,7 @@ const SignupPost = (req, res) => {
 const LoginGet = (req, res, next) => {
   res.render("login");
 };
-// Authentication
-const localStrategy = require("passport-local").Strategy;
-passport.use(new localStrategy({usernameField : 'email'}, (email, password, done)=>{
-  user.findOne({email : email} , (err,data) => {
-    if(err) throw err;
-    if(!data){
-      return done(null,false, {message : "Email or Password doesn't match"});
-    }
-    bcrypt.compare(password, data.password, (err, match)=>{
-      if(err){
-        return done(null,false); 
-      }
-      if(!match){
-        return done(null,false, {message : "Email or Password doesn't match"}); 
-      }
-      if(match){
-        return done(null,data); 
-      }
-    });
-  });
-}));
 
-passport.serializeUser(function(user, cb){
-  cb(null, user.id);
-});
-
-passport.deserializeUser(function(id, cb){
-  user.findById(id, function(err, user){
-    cb(err,user)
-  })
-});
-// End Authentication
 
 const LoginPost = (req, res, next) => {
   passport.authenticate('local',{
