@@ -66,14 +66,13 @@ const SignupPost = (req, res) => {
   var err;
   if (!full_name || !mobile_number || !email || !password) {
     err = "Please Fill All The Fields...";
-    res.render('signup', { err: err });
+    res.render('signup', { 'err' : err });
   }
   if (typeof err == "undefined") {
     user.findOne({ email: email }, function(err, data) {
       if (err) throw err;
       if (data) {
-        console.log("Email Already Exists");
-        err = "Email Already Exists...";
+        err = "Email Already Exists ....";
         res.render('signup', { 'err': err, full_name: full_name , mobile_number: mobile_number, email: email });
       } 
       else {
@@ -92,9 +91,8 @@ const SignupPost = (req, res) => {
               if (err) throw err;
               req.flash(
                 "success_message",
-               "Registered Successfully.. Login To Continue.."
+               "Registered Successfully.. Please Login To Continue.."
               );
-              console.log("Data added to Database Sucessfully");
               res.render("login");
             });
           });
@@ -103,8 +101,6 @@ const SignupPost = (req, res) => {
     });
   }
 };
-
-
 
 const LoginGet = (req, res, next) => {
   res.render("login");
@@ -115,14 +111,14 @@ passport.use(new localStrategy({usernameField : 'email'}, (email, password, done
   user.findOne({email : email} , (err,data) => {
     if(err) throw err;
     if(!data){
-      return done(null,false);
+      return done(null,false, {message : "Email or Password doesn't match"});
     }
     bcrypt.compare(password, data.password, (err, match)=>{
       if(err){
         return done(null,false); 
       }
       if(!match){
-        return done(null,false); 
+        return done(null,false, {message : "Email or Password doesn't match"}); 
       }
       if(match){
         return done(null,data); 
@@ -158,7 +154,7 @@ const LogoutGet =(req, res) => {
   res.redirect('/login');
 };
 const UserGet =(req, res) => {
-  res.render("user");
+  res.render("user", {'user': req.user});
 };
 
 const SensorsGet =(req, res) => {

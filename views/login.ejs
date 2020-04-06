@@ -40,7 +40,15 @@
     <br></br>
     <div class="container">
       <form class="center-align" id="login" method="POST" action="/login">
-        
+        <% if(success_message != ''){ %>
+          <strong> <%= success_message %> </strong>
+
+        <% } %>
+        <% if(error != '') {%>
+          <div>
+            <strong>Error! <%= error %></strong> 
+        </div>
+          <% } %>
         <div class="row ">
           
             <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">

@@ -37,8 +37,15 @@
     </ul>
     <br></br>
     <div class="container">
+     
       
         <form id="Signup" class="center-align" action="/signup" method="POST">
+          
+          <% if(typeof err != 'undefined') {%>
+            <div>
+              <strong>Warning! <%= err %></strong> 
+          </div>
+            <% } %>
             <div class="row ">
                 <div class="offset-m4 l3 input-field col s10 m4 l6 offset-l3">
                     <input name="full_name" placeholder="john alex" id="full_name" type="text" class="validate" title="Full Name" value="<%= typeof full_name != 'undefined' ? full_name : '' %>" required />
@@ -91,6 +98,7 @@
             class="btn waves-effect waves-light s4 "
             type="submit"
             name="action"
+
           >
             SignUp
             <i class="material-icons right">send</i>
