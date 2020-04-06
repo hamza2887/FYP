@@ -40,15 +40,17 @@
     
     <div class="container center-align">
         <h2>About Project</h2> 
-        <img class="materialboxed" width="300" src="img/home1.jpg">
+        <div class="carousel carousel-slider">
+          <a class="carousel-item" ><img src="img/home1.jpg"></a>
+          <a class="carousel-item" ><img src="img/home2.jpg"></a>
+          <a class="carousel-item" ><img src="img/home3.jpg"></a>
+        </div>
+        <p class="flow-text">
+          Home Automation is automation of home, housework or household activity. In other words it refers to use of IT/computer to control home appliances. It integrates electrical devices in a house with each other.<br>
+          In today's IT world, home automation is being popular due to easiness, flexible means of viewing/monitoring and controlling the appliances and other things according to users comfort and needs. The challenging part lies in simplicity and cost of installing them in home and varies with increasing number of services to be monitored and controlled. 
+          </p>
     </div>
-    <div class="container">
-      <p class="flow-text">
-      Home Automation is automation of home, housework or household activity. In other words it refers to use of IT/computer to control home appliances. It integrates electrical devices in a house with each other.</p>
-      <P class="flow-text">
-      In today's IT world, home automation is being popular due to easiness, flexible means of viewing/monitoring and controlling the appliances and other things according to users comfort and needs. The challenging part lies in simplicity and cost of installing them in home and varies with increasing number of services to be monitored and controlled. 
-      </p>
-    </div>
+    
         
     
     
@@ -89,6 +91,7 @@
       </div>
         
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     
   </body>
@@ -100,5 +103,9 @@
       $('.sidenav').sidenav();
     });
   </script>
+  <script>$('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true,
+  });</script>
   
 </html>
