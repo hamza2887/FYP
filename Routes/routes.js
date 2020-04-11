@@ -6,6 +6,7 @@ const passport = require("passport");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require('connect-flash');
+const Device = require("../device_model");
 
 /////////////////////
 router = express.Router();
@@ -170,9 +171,20 @@ const KitchenGet =(req, res) => {
   res.render("kitchen");
 };
 const SensorsPost = (req, res) => {
-  console.log("Smoke Sensor ....", req.body.smoke_sensor ? true : false);
-  console.log("Gas Sensor ....", req.body.gas_sensor ? true : false);
-  console.log("Motion Sensor ....", req.body.motion_sensor ? true : false);
+  //console.log(req.body.name)  showing undefined
+  var device = new Device({
+    //name: [smoke_sensor, gas_sensor, motion_sensor],
+    status:[req.body.smoke_sensor ? true : false, req.body.gas_sensor ? true : false, req.body.motion_sensor ? true : false] ,
+});
+device.save()
+{
+  console.log("data added")
+}
+
+
+  //console.log("Smoke Sensor ....", req.body.smoke_sensor ? true : false);
+  //console.log("Gas Sensor ....", req.body.gas_sensor ? true : false);
+  //console.log("Motion Sensor ....", req.body.motion_sensor ? true : false);
   // res.finished();
   // res.status(200).end()
   // res.end();
@@ -182,11 +194,18 @@ const SensorsPost = (req, res) => {
   // } else {
   //   console.log("post data is: ", false);
   // }
+
+  
+
+
+
+
 };
 
 const Bedroom1Post = (req, res) => {
   if (req.body.r1fanswitch ? true : false) {
     console.log("BedRoom 1 Fan is ON");
+
   } else {
     console.log("BedRoom 1 Fan is OFF");
   }
@@ -228,14 +247,14 @@ const KitchenPost = (req, res) => {
 router.get("/", homeGet);
 router.get("/login", LoginGet);
 router.get("/signup", SignupGet);
+router.post("/signup", SignupPost);
+router.post("/login", LoginPost);
 router.get("/user", checkAuthenticated, UserGet);
-router.get("/sensors", checkAuthenticated, SensorsGet);
+router.get("/sensors", SensorsGet);
 router.get("/bedroom1", checkAuthenticated, Bedroom1Get);
 router.get("/bedroom2", checkAuthenticated, Bedroom2Get);
 router.get("/kitchen", checkAuthenticated, KitchenGet);
 router.get("/logout", LogoutGet);
-router.post("/signup", SignupPost);
-router.post("/login", LoginPost);
 router.post("/sensors", SensorsPost);
 router.post("/bedroom1", Bedroom1Post);
 router.post("/bedroom2", Bedroom2Post);
