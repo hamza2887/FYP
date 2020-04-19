@@ -242,7 +242,7 @@ const SensorsPost = (req, res) =>{
         console.log("Sensors Data Added");
         }
     })
-
+  res.redirect("/sensors")
 };
 
 const Bedroom1Post = (req, res) => {
@@ -261,6 +261,7 @@ const Bedroom1Post = (req, res) => {
         console.log("Room 1 Data Added");
         }
     })
+    res.redirect("/bedroom1")
 };
 
 const Bedroom2Post = (req, res) => {
@@ -280,7 +281,7 @@ const Bedroom2Post = (req, res) => {
         console.log("Room 2 Data Added");
         }
     })
-  
+    res.redirect("/bedroom2")
 };
 
 const KitchenPost = (req, res) => {
@@ -300,7 +301,7 @@ const KitchenPost = (req, res) => {
         console.log("Kitchen Data Added");
         }
     })
-
+    res.redirect("/kitchen")
 };
 
 router.get("/", homeGet);
