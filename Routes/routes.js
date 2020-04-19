@@ -182,20 +182,50 @@ const UserGet = (req, res) => {
 };
 
 const SensorsGet = (req, res) => {
-  res.render("sensors", { });
+  Device.find({name: ["Smoke Sensor", "Gas Sensor","Motion Sensor"]},function(err,data){
+    if(err){
+
+    }
+    else {console.log(data);
+      res.render("sensors", { });
+    }
+  })
 };
 const Bedroom1Get = (req, res) => {
-  res.render("bedroom1", { });
+  Device.find({name: ["Room 1 Fan", "Room 1 Main Light", "Room 1 Zero Light"]},function(err,data){
+    if(err){
+
+    }
+    else {console.log(data);
+      res.render("bedroom1", { });
+    }
+  })
+  
   
 };
 const Bedroom2Get = (req, res) => {
-  res.render("bedroom2", { });
+  Device.find({name: ["Room 2 Fan", "Room 2 Main Light", "Room 2 Zero Light"]},function(err,data){
+    if(err){
+
+    }
+    else {console.log(data);
+      res.render("bedroom2", { });
+    }
+  })
+
 };
 const KitchenGet = (req, res) => {
-  res.render("kitchen", { });
+  Device.find({name: ["Kitchen Main Light" , "Kitchen Exhaust Fan"]},function(err,data){
+    if(err){
+
+    }
+    else {console.log(data);
+      res.render("kitchen", { });
+    }
+  })
+
 };
-const SensorsPost = (req, res) =>
-{
+const SensorsPost = (req, res) =>{
  var name= ["Smoke Sensor", "Gas Sensor", "Motion Sensor"];
   var  status= [
       req.body.smoke_sensor ? true : false,
@@ -212,43 +242,7 @@ const SensorsPost = (req, res) =>
         console.log("Sensors Data Added");
         }
     })
-      //else Device({name,status}).save();
-    
-    //Device({name,status}).save();
-    // Device.findOneAndUpdate({ email: name }, function (data) {
-    //   if (data){
-      
-    //   }
-    //   else Device({name,status
-    //   }).save();
-    // })
 
-    // console.log(name)
-    // console.log(status)
-  // var device = new Device({
-  //   name: ["Smoke Sensor", "Gas Sensor", "Motion Sensor"],
-  //   status: [
-  //     req.body.smoke_sensor ? true : false,
-  //     req.body.gas_sensor ? true : false,
-  //     req.body.motion_sensor ? true : false,
-  //   ],
-  // });
-  // device.save();
-   
-  
-
-  //console.log("Smoke Sensor ....", req.body.smoke_sensor ? true : false);
-  //console.log("Gas Sensor ....", req.body.gas_sensor ? true : false);
-  //console.log("Motion Sensor ....", req.body.motion_sensor ? true : false);
-  // res.finished();
-  // res.status(200).end()
-  // res.end();
-  // res.redirect("/");
-  // if (req.body.lightSwitch) {
-  //   console.log("post data is: ", true);
-  // } else {
-  //   console.log("post data is: ", false);
-  // }
 };
 
 const Bedroom1Post = (req, res) => {
@@ -267,21 +261,6 @@ const Bedroom1Post = (req, res) => {
         console.log("Room 1 Data Added");
         }
     })
- 
-  // console.log(req.body.bed1)
-  // console.log(req.body.bed1 ? true : false)
-//   var bed1 = new Bed1({
-//     name:req.body.bed1,
-//     status:req.body.bed1 ? true : false,
-// });
-// bed1.save()
-// {
-//   console.log("data added to bed 1")
-// }
-
- 
-
-
 };
 
 const Bedroom2Post = (req, res) => {
@@ -301,26 +280,7 @@ const Bedroom2Post = (req, res) => {
         console.log("Room 2 Data Added");
         }
     })
-  //console.log(req.body);
-  // console.log(req.body.Device)
-  // console.log(req.body.Device ? true : false)
-  // var bed1 = new Bed1({
-  //       name:req.body.Device,
-  //       status:req.body.Device ? true : false,
-  //   });
-  //   bed1.save()
-  //   {
-  //     console.log("data added to bed 2")
-  //   }
-  // console.log("BedRoom 2 Celing Fan ....", req.body.r2fanswitch ? true : false);
-  // console.log(
-  //   "BedRoom 2 Main Light ....",
-  //   req.body.r2mlightswitch ? true : false
-  // );
-  // console.log(
-  //   "BedRoom 2 Zero Light ....",
-  //   req.body.r2zlightswitch ? true : false
-  // );
+  
 };
 
 const KitchenPost = (req, res) => {
@@ -340,19 +300,7 @@ const KitchenPost = (req, res) => {
         console.log("Kitchen Data Added");
         }
     })
-//   var kitchen = new kDevice({
-//     name:[req.body.kitchen],
-//     status:[req.body.kitchen ? true : false] ,
-// });
-// kitchen.save()
-// {
-//   console.log("data added to kDevice")
-// }
-  // console.log("Kitchen Light ....", req.body.klightswitch ? true : false);
-  // console.log(
-  //   "Kitchen Exhaust fan ....",
-  //   req.body.kexhaustswitch ? true : false
-  // );
+
 };
 
 router.get("/", homeGet);
