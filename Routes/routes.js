@@ -187,7 +187,7 @@ const SensorsGet = (req, res) => {
 
     }
     else {console.log(data);
-      res.render("sensors", { });
+      res.render("sensors", { Sensor : data });
     }
   })
 };
@@ -197,7 +197,7 @@ const Bedroom1Get = (req, res) => {
 
     }
     else {console.log(data);
-      res.render("bedroom1", { });
+      res.render("bedroom1", {Bedroom1 : data });
     }
   })
   
@@ -209,7 +209,7 @@ const Bedroom2Get = (req, res) => {
 
     }
     else {console.log(data);
-      res.render("bedroom2", { });
+      res.render("bedroom2", {Bedroom2: data });
     }
   })
 
@@ -220,7 +220,7 @@ const KitchenGet = (req, res) => {
 
     }
     else {console.log(data);
-      res.render("kitchen", { });
+      res.render("kitchen", {Kitchen: data });
     }
   })
 
