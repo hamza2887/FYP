@@ -39,15 +39,12 @@
     
       <div class="switch center-align ">
          <h1>Kitchen </h1>
-         <h3><%= Kitchen[0].status[0] %></h3>
-         <h3><%= Kitchen[0].status[1] %></h3>
-         
             <label> <h5>Main Light <i class="tiny material-icons ">wb_incandescent</i></h5>
                 Off
                 <input
                 name="kmlightswitch"
-                
                 type="checkbox"
+                <%=Kitchen[0].status[0] ? "checked": "" %>
                 onchange="handleChange()"
             />
             <span class="lever"></span>
@@ -57,8 +54,8 @@
             Off
             <input
                 name="kexhaustfanswitch"
-                
                 type="checkbox"
+                <%=Kitchen[0].status[1] ? "checked": "" %>
                 onchange="handleChange1()"
             />
             

@@ -39,15 +39,14 @@
     
     <div class="switch center-align">
         <h1>Sensors</h1>
-        <h3><%= Sensor[0].status[0]%><h3>
-          <h3><%= Sensor[0].status[1]%><h3>
-            <h3><%= Sensor[0].status[2]%><h3>
         <label> <h5>Smoke Sensor <i class="material-icons ">smoking_rooms</i></h5>
           Off
           <input
             name="smoke_sensor"
             type="checkbox"
+            <%=Sensor[0].status[0] ? "checked": "" %>
             onchange="handleChange()"
+
           />
           <span class="lever"></span>
           On
@@ -61,7 +60,7 @@
             <input
               name="gas_sensor"
               type="checkbox"
-              
+              <%=Sensor[0].status[1] ? "checked": "" %>
               onchange="handleChange()"
             />
             <span class="lever"></span>
@@ -77,7 +76,7 @@
           <input
             name="motion_sensor"
             type="checkbox"
-            
+            <%=Sensor[0].status[2] ? "checked": "" %>
             onchange="handleChange()"
           />
           <span class="lever"></span>
