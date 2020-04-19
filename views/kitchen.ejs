@@ -42,7 +42,8 @@
             <label> <h5>Main Light <i class="tiny material-icons ">wb_incandescent</i></h5>
                 Off
                 <input
-                name="klightswitch"
+                name="kmlightswitch"
+                
                 type="checkbox"
                 onchange="handleChange()"
             />
@@ -52,9 +53,10 @@
             <label> <h5>Exhaust Fan <span class="iconify" data-icon="mdi-fan"></span></h5>
             Off
             <input
-                name="kexhaustswitch"
+                name="kexhaustfanswitch"
+                
                 type="checkbox"
-                onchange="handleChange()"
+                onchange="handleChange1()"
             />
             
             <span class="lever"></span>
@@ -101,6 +103,12 @@
         </footer>
     <script>
       function handleChange(checkbox) 
+      {
+        document.getElementById("Kitchen").submit();
+      }
+     </script>
+     <script>
+      function handleChange1(checkbox) 
       {
         document.getElementById("Kitchen").submit();
       }
