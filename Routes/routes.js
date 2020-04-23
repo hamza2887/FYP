@@ -7,9 +7,23 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const Device = require("../Models/devices");
+const gpio = require("rpi-gpio");
 
 /////////////////////
 router = express.Router();
+
+// GPIO Setup
+gpio.setup(11, gpio.DIR_OUT);
+gpio.setup(13, gpio.DIR_OUT);
+gpio.setup(15, gpio.DIR_OUT);
+gpio.setup(16, gpio.DIR_OUT);
+gpio.setup(18, gpio.DIR_OUT);
+gpio.setup(22, gpio.DIR_OUT);
+gpio.setup(36, gpio.DIR_OUT);
+gpio.setup(38, gpio.DIR_OUT);
+gpio.setup(40, gpio.DIR_OUT);
+gpio.setup(35, gpio.DIR_OUT);
+gpio.setup(37, gpio.DIR_OUT);
 
 ////////////////////
 router.use(cookieParser("secret"));
@@ -178,7 +192,7 @@ const LogoutGet = (req, res) => {
 };
 const UserGet = (req, res) => {
   res.render("user", { user: req.user });
-  //console.log(req.user);
+  console.log("Welcome ",req.user.full_name);
 };
 
 const SensorsGet = (req, res) => {
@@ -186,8 +200,30 @@ const SensorsGet = (req, res) => {
     if(err){
 
     }
-    else {console.log(data);
+    else {//console.log(data);
       res.render("sensors", { Sensor : data });
+      
+      console.log(data[0].status);
+      var button=data[0].status;
+      if(button[0]==true){
+        gpio.write(11,true);
+      }
+      else{
+        gpio.write(11,false);
+      }
+      
+      if(button[1]==true){
+        gpio.write(13,true);
+      }
+      else{
+        gpio.write(13,false);
+      }
+      if(button[2]==true){
+        gpio.write(15,true);
+      }
+      else{
+        gpio.write(15,false);
+      }
     }
   })
 };
@@ -196,8 +232,29 @@ const Bedroom1Get = (req, res) => {
     if(err){
 
     }
-    else {console.log(data);
+    else {//console.log(data);
       res.render("bedroom1", {Bedroom1 : data });
+      console.log(data[0].status);
+      var button=data[0].status;
+      if(button[0]==true){
+        gpio.write(16,true);
+      }
+      else{
+        gpio.write(16,false);
+      }
+      
+      if(button[1]==true){
+        gpio.write(18,true);
+      }
+      else{
+        gpio.write(18,false);
+      }
+      if(button[2]==true){
+        gpio.write(22,true);
+      }
+      else{
+        gpio.write(22,false);
+      }
     }
   })
   
@@ -208,8 +265,29 @@ const Bedroom2Get = (req, res) => {
     if(err){
 
     }
-    else {console.log(data);
+    else {//console.log(data);
       res.render("bedroom2", {Bedroom2: data });
+      console.log(data[0].status);
+      var button=data[0].status;
+      if(button[0]==true){
+        gpio.write(36,true);
+      }
+      else{
+        gpio.write(36,false);
+      }
+      
+      if(button[1]==true){
+        gpio.write(38,true);
+      }
+      else{
+        gpio.write(38,false);
+      }
+      if(button[2]==true){
+        gpio.write(40,true);
+      }
+      else{
+        gpio.write(40,false);
+      }
     }
   })
 
@@ -219,8 +297,23 @@ const KitchenGet = (req, res) => {
     if(err){
 
     }
-    else {console.log(data);
+    else {//console.log(data);
       res.render("kitchen", {Kitchen: data });
+      console.log(data[0].status);
+      var button=data[0].status;
+      if(button[0]==true){
+        gpio.write(35,true);
+      }
+      else{
+        gpio.write(35,false);
+      }
+      
+      if(button[1]==true){
+        gpio.write(37,true);
+      }
+      else{
+        gpio.write(37,false);
+      }
     }
   })
 

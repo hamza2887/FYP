@@ -16,10 +16,20 @@
     "cookie-parser": "^1.4.5",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "jquery": "^3.4.1",
-    "mongoose": "^5.9.7",
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.0",
+    "mongoose": "^5.9.10",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
-  }
+    "passport-local": "^1.0.0",
+    "rpi-gpio": "^2.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamza2887/FYP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hamza2887/FYP/issues"
+  },
+  "homepage": "https://github.com/hamza2887/FYP#readme",
+  "devDependencies": {}
 }
