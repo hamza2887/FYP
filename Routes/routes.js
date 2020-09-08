@@ -237,23 +237,23 @@ const Bedroom1Get = (req, res) => {
       console.log(data[0].status);
       var button=data[0].status;
       if(button[0]==true){
-        gpio.write(16,true);
+        gpio.write(16,false);
       }
       else{
-        gpio.write(16,false);
+        gpio.write(16,true);
       }
       
       if(button[1]==true){
-        gpio.write(18,true);
-      }
-      else{
         gpio.write(18,false);
       }
+      else{
+        gpio.write(18,true);
+      }
       if(button[2]==true){
-        gpio.write(22,true);
+        gpio.write(22,false);
       }
       else{
-        gpio.write(22,false);
+        gpio.write(22,true);
       }
     }
   })
@@ -270,23 +270,23 @@ const Bedroom2Get = (req, res) => {
       console.log(data[0].status);
       var button=data[0].status;
       if(button[0]==true){
-        gpio.write(36,true);
+        gpio.write(36,false);
       }
       else{
-        gpio.write(36,false);
+        gpio.write(36,true);
       }
       
       if(button[1]==true){
-        gpio.write(38,true);
-      }
-      else{
         gpio.write(38,false);
       }
+      else{
+        gpio.write(38,true);
+      }
       if(button[2]==true){
-        gpio.write(40,true);
+        gpio.write(40,false);
       }
       else{
-        gpio.write(40,false);
+        gpio.write(40,true);
       }
     }
   })
@@ -302,17 +302,17 @@ const KitchenGet = (req, res) => {
       console.log(data[0].status);
       var button=data[0].status;
       if(button[0]==true){
-        gpio.write(35,true);
+        gpio.write(35,false);
       }
       else{
-        gpio.write(35,false);
+        gpio.write(35,true);
       }
       
       if(button[1]==true){
-        gpio.write(37,true);
+        gpio.write(37,false);
       }
       else{
-        gpio.write(37,false);
+        gpio.write(37,true);
       }
     }
   })

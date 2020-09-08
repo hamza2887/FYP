@@ -14,9 +14,9 @@ const port = 3000;
 
 // Database Connection
 mongoose.connect(
-    "mongodb+srv://Hamza:fyp@cluster0-02iye.mongodb.net/fyp?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}
-  )
+  "mongodb+srv://Hamza:fyp@cluster0-02iye.mongodb.net/fyp?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+)
   .then(() => {
     console.log("Connection Established");
   })
